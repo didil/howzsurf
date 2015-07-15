@@ -9,7 +9,7 @@ SpotController = AppController.extend({
         return Spots.findOne(controller.params._id);
       },
       ratings: function () {
-        return Ratings.find({spotId: controller.params._id});
+        return Ratings.find({spotId: controller.params._id}, {sort: {createdAt: -1}});
       }
     }
   },
