@@ -7,6 +7,12 @@ Router.route('/dashboard', {
   controller: 'DashboardController'
 });
 
+Router.route('/spot/:_id', {
+  name: 'spot',
+  controller: 'SpotController'
+});
+
+
 Router.plugin('ensureSignedIn', {
-  only: ['dashboard']
+  except: ['home']
 });
