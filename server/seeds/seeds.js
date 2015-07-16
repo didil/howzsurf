@@ -1,9 +1,9 @@
 Meteor.startup(function () {
 
   if (Spots.find({}).count() === 0) {
-    Spots.insert({name: "Puerto Escondido", mswId: 340});
-    Spots.insert({name: "Dar Bouazza", mswId: 248});
-    Spots.insert({name: "Santa Catalina - La Punta", mswId: 448});
+    Spots.insert({name: "Puerto Escondido", mswId: 340, ratingsCount: 0});
+    Spots.insert({name: "Dar Bouazza", mswId: 248, ratingsCount: 0});
+    Spots.insert({name: "Santa Catalina - La Punta", mswId: 448, ratingsCount: 0});
   }
 
   if (Ratings.find({}).count() === 0) {

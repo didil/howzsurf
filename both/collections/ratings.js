@@ -6,19 +6,19 @@ Ratings.attachSchema(new SimpleSchema({
     label: "Spot Id",
     max: 50
   },
-  userFacebookId:{
+  userFacebookId: {
     type: String,
     label: "userFacebookId",
     max: 50
   },
-  userName:{
+  userName: {
     type: String,
     label: "User Name",
     max: 50
   },
   createdAt: {
     type: Date,
-    autoValue: function() {
+    autoValue: function () {
       if (this.isInsert) {
         return new Date;
       } else if (this.isUpsert) {
@@ -47,6 +47,12 @@ Ratings.allow({
   }
 });
 
-Ratings.helpers({
+Ratings.helpers({});
 
+Ratings.after.insert(function (userId, doc) {
+  Spots.update({_id:doc.spotId} , {$inc: {ratingsCount:1}})
+});
+
+Ratings.after.remove(function (userId, doc) {
+  Spots.update({_id:doc.spotId} , {$inc: {ratingsCount:-1}})
 });

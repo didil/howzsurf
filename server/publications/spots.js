@@ -1,7 +1,7 @@
 Meteor.publishComposite("spots", function () {
   return {
     find: function () {
-      return Spots.find({});
+      return Spots.find({} , {sort: {ratingsCount: -1}});
     }
   }
 });

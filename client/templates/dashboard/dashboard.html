@@ -4,17 +4,27 @@
             <h1>Dashboard</h1>
         </div>
 
-        <div class="row">
-            <div class="col-md-offset-4 col-md-4 form-inline" >
-                <label>Surf Spot</label>
-                <select id="spots-select" class="form-control">
-                    <option selected>Choose a spot</option>
-                    {{#each spots}}
-                        <option value="{{_id}}">{{name}}</option>
-                    {{/each}}
-                </select>
-            </div>
-        </div>
+
+        <table class="table table-responsive table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Spot Name</th>
+                <th>Number of Ratings</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each spots}}
+                <tr>
+                    <td>
+                        <a href="{{pathFor 'ratings' spotId=_id}}"> {{name}}</a>
+                    </td>
+                    <td class="text-center">
+                        {{ratingsCount}}
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
 
 
     </div>

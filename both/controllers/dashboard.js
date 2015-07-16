@@ -3,7 +3,7 @@ DashboardController = AppController.extend({
     return this.subscribe('spots');
   },
   data: {
-    spots: Spots.find({})
+    spots: Spots.find({} , {sort: {ratingsCount: -1}})
   },
   onAfterAction: function () {
     Meta.setTitle('Dashboard');
