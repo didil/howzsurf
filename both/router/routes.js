@@ -20,3 +20,4 @@ Router.route('/spot/:spotId/ratings', {
 Router.plugin('ensureSignedIn', {
   except: ['home']
 });
+
