@@ -1,0 +1,10 @@
+<template name="ratingsList">
+    <h3>
+        Ratings
+        <a class="btn btn-primary" href="{{pathFor 'newRating' spotId=spot._id }}">Post New Rating</a>
+    </h3>
+
+    {{#each ratings}}
+        {{> rating }}
+    {{/each}}
+</template>

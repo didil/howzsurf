@@ -15,7 +15,7 @@ Meteor.publishComposite("spot", function (_id) {
     children: [
       {
         find: function (spot) {
-          return Ratings.find({spotId: spot._id}, {sort: {createdAt: -1}});
+          return Ratings.find({spotId: spot._id}, {sort: {createdAt: -1}, limit: 20});
         }
       }
     ]

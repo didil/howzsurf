@@ -15,6 +15,6 @@ DashboardController.events({
     event.preventDefault();
   },
   'change #spots-select': function (event, template) {
-    Router.go('spot', {_id: event.target.value});
+    Router.go('ratings', {spotId: event.target.value});
   }
 });

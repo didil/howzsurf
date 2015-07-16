@@ -7,11 +7,15 @@ Router.route('/dashboard', {
   controller: 'DashboardController'
 });
 
-Router.route('/spot/:_id', {
-  name: 'spot',
-  controller: 'SpotController'
+Router.route('/spot/:spotId/ratings/new', {
+  name: 'newRating',
+  controller: 'NewRatingController'
 });
 
+Router.route('/spot/:spotId/ratings', {
+  name: 'ratings',
+  controller: 'RatingsController'
+});
 
 Router.plugin('ensureSignedIn', {
   except: ['home']

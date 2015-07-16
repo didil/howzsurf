@@ -1,11 +1,11 @@
 <template name="spot">
-    <h1>Surf Spot : {{spot.name}}</h1>
+    <h1>
+        Surf Spot : {{spot.name}}
 
-    <h3>Ratings</h3>
+        <a class="btn btn-info pull-right" href="{{pathFor 'dashboard'}}">Back to Dashboard</a>
+    </h1>
 
-    {{#each ratings}}
-        {{> rating }}
-    {{/each}}
+    {{> yield 'rating'}}
 
 
 </template>

@@ -1,0 +1,24 @@
+<template name="newRating">
+    {{#autoForm collection="Ratings" id="insertRatingForm" type="insert"}}
+        <fieldset>
+            <legend>New Rating</legend>
+
+            <div class="row">
+                <div class="col-md-2">
+                    {{> afQuickField name='score'}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    {{> afQuickField name='text' rows=3}}
+                </div>
+            </div>
+
+            {{> afFieldInput name="userName" value=userName type="hidden"}}
+            {{> afFieldInput name="userFacebookId" value=userFacebookId type="hidden"}}
+            {{> afFieldInput name="spotId" value=spot._id type="hidden"}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Post</button>
+    {{/autoForm}}
+</template>

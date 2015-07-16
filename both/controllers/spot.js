@@ -1,20 +1,13 @@
 SpotController = AppController.extend({
+  template: 'spot',
   waitOn: function () {
-    return this.subscribe('spot', this.params._id);
+    return [this.subscribe('spot', this.params.spotId), this.subscribe("userData")];
   },
-  data: function () {
-    var controller = this;
-    return {
-      spot: function () {
-        return Spots.findOne(controller.params._id);
-      },
-      ratings: function () {
-        return Ratings.find({spotId: controller.params._id}, {sort: {createdAt: -1}});
-      }
-    }
+  spot: function () {
+    return Spots.findOne(this.params.spotId);
   },
-  onAfterAction: function () {
-    Meta.setTitle('Spot');
+  data:  {
+    spot: this.spot
   }
 });
 
